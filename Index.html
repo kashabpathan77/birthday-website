@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #12000b;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ---------------- BACKGROUND ---------------- */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #7d174f55, transparent 30%),
+        radial-gradient(circle at 80% 80%, #ff174455, transparent 30%);
+    z-index: -2;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 5;
+    animation: fadeIn 2s ease;
+}
+
+.small-title {
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #ffb6d9;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+h1 {
+    font-size: clamp(45px, 12vw, 95px);
+    color: #fff;
+    text-shadow:
+        0 0 10px #ff4fa3,
+        0 0 25px #ff1685,
+        0 0 50px #ff1685;
+    margin-bottom: 15px;
+    animation: heartbeat 2s infinite;
+}
+
+.hero-name {
+    font-size: clamp(30px, 8vw, 60px);
+    color: #ff8ac6;
+    margin-bottom: 25px;
+}
+
+.intro {
+    max-width: 650px;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #ffe5f1;
+}
+
+/* ---------------- BUTTON ---------------- */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.main-button {
+    margin-top: 35px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff277f, #ff72b5);
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 0 20px #ff277f88;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ff277f;
+}
+
+/* ---------------- FLOATING HEARTS ---------------- */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 40px;
+    color: #ff91c8;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px #ff1685;
+}
+
+.section-text {
+    max-width: 750px;
+    margin: auto;
+    font-size: 19px;
+    line-height: 1.8;
+    color: #ffe8f3;
+}
+
+/* ---------------- WISHES ---------------- */
+
+.wishes {
+    background: #260014aa;
+}
+
+.wish-container {
+    max-width: 900px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.wish-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: #ffffff0d;
+    border: 1px solid #ff6eae44;
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px #ff1b7955;
+}
+
+.wish-card span {
+    font-size: 45px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.wish-card h3 {
+    color: #ff9ccb;
+    margin-bottom: 10px;
+}
+
+/* ---------------- LOVE LETTER ---------------- */
+
+.letter {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 40px 30px;
+    background: #fff7fb;
+    color: #4b102e;
+    border-radius: 12px;
+    box-shadow: 0 0 40px #ff4c9b66;
+    transform: rotate(-1deg);
+}
+
+.letter h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* ---------------- GIFT ---------------- */
+
+.gift-section {
+    min-height: 500px;
+}
+
+.gift {
+    width: 130px;
+    height: 110px;
+    background: #ff2d82;
+    margin: 70px auto 30px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 0 30px #ff2d82;
+    cursor: pointer;
+}
+
+.gift::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 110px;
+    background: #ffd3e7;
+    left: 52px;
+}
+
+.gift::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    background: #ff70ad;
+    left: -10px;
+    top: -10px;
+}
+
+.gift-lid {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    background: #ff70ad;
+    left: -10px;
+    top: -15px;
+    z-index: 2;
+    transition: 0.8s;
+}
+
+.gift.open .gift-lid {
+    transform: translateY(-80px) rotate(-10deg);
+}
+
+.gift-hint {
+    color: #ffb3d5;
+}
+
+/* ---------------- SURPRISE MESSAGE ---------------- */
+
+.surprise {
+    display: none;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff247f22, #ffffff0d);
+    border: 1px solid #ff72b566;
+    box-shadow: 0 0 40px #ff247f33;
+    animation: pop 0.8s ease;
+}
+
+.surprise.show {
+    display: block;
+}
+
+.surprise h2 {
+    color: #ff8fc7;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.surprise p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    color: #ffb4d7;
+    background: #090006;
+}
+
+footer .big-heart {
+    font-size: 40px;
+    animation: heartbeat 1.5s infinite;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* ---------------- CONFETTI ---------------- */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    z-index: 100;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff72b5;
+    }
+
+    to {
+        text-shadow: 0 0 25px #ff1685;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.05);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 600px) {
+
+    .small-title {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .intro {
+        font-size: 17px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .letter {
+        padding: 30px 20px;
+    }
+
+    .letter p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            A SPECIAL DAY FOR A SPECIAL PERSON ✨
+        </div>
+
+        <h1>Happy Birthday Avi </h1>
+
+        <!-- CHANGE HIS NAME HERE -->
+        <div class="hero-name">
+            My Love ❤️
+        </div>
+
+        <p class="intro">
+            "Allah ka shukr hai ke unhone aapko meri zindagi mein bheja — aur aaj main usi shukr ke saath aapko janamdin mubarak kehti hoon." 🎂
+          <br> Mere programmer partner ke liye Birthday website.<br> 
+          I hope aako accha lagega.🙈✨
+        </p>
+
+        <button class="main-button" onclick="scrollToSurprise()">
+            🎁 Open Your Surprise
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= WISHES ================= -->
+
+<section class="wishes">
+
+    <h2 class="section-title">
+        Birthday Wishes For You 💕
+    </h2>
+
+    <p class="section-text">
+        On your special day, I wish you happiness that never ends,
+        success that makes you proud, and beautiful moments
+        that stay in your heart forever.
+    </p>
+
+    <div class="wish-container">
+
+        <div class="wish-card">
+            <span>🎂</span>
+            <h3>Happiness</h3>
+            <p>
+                May your life always be filled
+                with happiness and beautiful moments.
+            </p>
+        </div>
+
+        <div class="wish-card">
+            <span>🌟</span>
+            <h3>Success</h3>
+            <p>
+                May every dream you work for
+                slowly become your reality.
+            </p>
+        </div>
+
+        <div class="wish-card">
+            <span>❤️</span>
+            <h3>Love</h3>
+            <p>
+                May you always be surrounded
+                by people who genuinely care about you.
+            </p>
+        </div>
+
+        <div class="wish-card">
+            <span>✨</span>
+            <h3>Beautiful Future</h3>
+            <p>
+                May your future be brighter,
+                happier and more beautiful than today.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOVE LETTER ================= -->
+
+<section>
+
+    <h2 class="section-title">
+        A Little Message From My Heart 💌
+    </h2>
+
+    <div class="letter">
+
+        <h3>To My Special Person ❤️</h3>
+
+        <p>
+            Happy Birthday to someone who means so much to me.
+            Janamdin Mubarak, mere hone wale shohar!🫠 Ab toh har birthday hum saath manayenge, inshaAllah.🥳
+            <br><br>
+
+            Birthday text 
+Toh finally meri jaan ka birthday aa gaya 😘💗🤌🏻kaise time itte fast gaya patahi nahi chala aapke sath aur baat,vo vc 🙈💗,aur vo challenges level unlock karna 🤣🫶🏻💗kaise ye din gaya patahi nahi chala bohot mashallah bohot khubsurat 💗🤌🏻
+            <br><br>
+
+            Pehla janamdin as engaged couple — aur main dua karti hoon ke yeh pehla hi nahi, balki hazaar aur saal hum saath guzaarein. 🫂❤️
+            <br><br>
+
+            Aab bs allah tala hamara Safar aur bhi mashallah kare aur aage hum dono ko bohot sari khushiyon se nawaze 🫠💗💫
+          hamare har Khwab pare ho 💝aur hum sath me budha budhi bane 🧓🏻👵🏻🤣💗🤌🏻pata nahi aage kya hoga pr inshallah mein hamesha hamesha aapke saath rahungi 🫠🫂💗💫 
+          allah tala aapki har khwahish aur Tamannaah ko pura kare *AMEEN*🤲🏻💝💫
+            <br><br>
+
+            <b>Happy Birthday, my love. 🎂❤️</b>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SURPRISE ================= -->
+
+<section class="gift-section" id="surpriseSection">
+
+    <h2 class="section-title">
+        There Is One More Thing... 👀
+    </h2>
+
+    <p class="section-text">
+        I kept a little surprise hidden here for you.
+        Click the gift box. 🎁
+    </p>
+
+    <div class="gift" id="gift" onclick="openGift()">
+
+        <div class="gift-lid"></div>
+
+    </div>
+
+    <p class="gift-hint">
+        👆 Tap the gift
+    </p>
+
+
+    <div class="surprise" id="surprise">
+
+        <h2>💖 SURPRISE ! 💖</h2>
+
+        <p>
+            If you're reading this...
+            congratulations, you found my little secret. 😄
+            <br><br>
+
+            Janamdin Mubarak, mere mustaqbil ke shohar! 🌙💖
+Aaj ke is khubsurat din par, main Allah se dil se dua karti hoon ke woh aapko hamesha apni hifazat mein rakhe, aapke dil ko iman aur noor se bhare, aur aapki zindagi ko khushiyon, barkaton, aur kamyabiyon se nawaze.
+            <br><br>
+
+            Allahumma barik lahu fi ‘umrihi, wa sihhatihi, wa rizqihi, wa dinihi.
+(Ya Allah, aap uski umr, sehat, rizq aur deen mein barkat ata farma.) Ameen 🤲🏻✨
+            <br><br>
+<i>Aapko meri ye birthday website kaisi lagi jarur batana ji 🤗 </i>
+            <b>
+                Happy Birthday once again ji ! 🎂❤️
+            </b>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <span class="big-heart">❤️</span>
+
+    Made with lots of love ✨
+
+    <br><br>
+
+    Happy Birthday! 🎂
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    const hearts = ["❤️", "💕", "💖", "💗", "💓", "✨"];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(createHeart, 500);
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    const confetti = document.createElement("div");
+
+    confetti.classList.add("confetti");
+
+    confetti.style.left =
+        Math.random() * 100 + "vw";
+
+    confetti.style.animationDuration =
+        (2 + Math.random() * 3) + "s";
+
+    confetti.style.transform =
+        `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 5000);
+}
+
+
+/* =====================================================
+   SURPRISE BUTTON
+===================================================== */
+
+function scrollToSurprise() {
+
+    document
+        .getElementById("surpriseSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    setTimeout(() => {
+
+        for (let i = 0; i < 80; i++) {
+            setTimeout(createConfetti, i * 20);
+        }
+
+    }, 700);
+}
+
+
+/* =====================================================
+   OPEN GIFT
+===================================================== */
+
+function openGift() {
+
+    const gift =
+        document.getElementById("gift");
+
+    const surprise =
+        document.getElementById("surprise");
+
+    gift.classList.toggle("open");
+
+    if (gift.classList.contains("open")) {
+
+        setTimeout(() => {
+            surprise.classList.add("show");
+        }, 600);
+
+        for (let i = 0; i < 120; i++) {
+
+            setTimeout(createConfetti, i * 15);
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
