@@ -445,10 +445,25 @@ footer .big-heart {
 
     font-size: 15px;
 }
+    /* =====================================================
+   🔒 HIDE WEBSITE UNTIL PASSWORD IS CORRECT
+===================================================== */
+
+body.locked > *:not(#passwordScreen) {
+    display: none !important;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+#passwordScreen {
+    display: flex !important;
+}
 </style>
 </head>
 
-<body>
+<body class="locked">
   <!-- ================= PASSWORD SCREEN ================= -->
 
 <div id="passwordScreen">
@@ -788,7 +803,7 @@ function openGift() {
    🔐 PASSWORD PROTECTION
 ===================================================== */
 
-const SECRET_PASSWORD = "Avi486";
+const SECRET_PASSWORD = "Avi25";
 
 function checkPassword() {
 
@@ -796,30 +811,28 @@ function checkPassword() {
     const passwordScreen = document.getElementById("passwordScreen");
     const error = document.getElementById("passwordError");
 
-    if (!input || !passwordScreen) {
-        return;
-    }
+    if (input.value === SECRET_PASSWORD) {
 
-    if (input.value.trim() === SECRET_PASSWORD) {
+        // 🔓 Correct password
+        document.body.classList.remove("locked");
 
-        // Correct password
         passwordScreen.style.display = "none";
 
-        document.body.style.overflowX = "hidden";
-        document.body.style.overflowY = "auto";
+        document.body.style.overflow = "auto";
 
     } else {
 
-        // Wrong password
+        // ❌ Wrong password
         error.textContent = "❌ Wrong password! Try again.";
 
         input.value = "";
+
         input.focus();
     }
 }
 
 
-/* Allow Enter key */
+/* Press Enter to unlock */
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -835,6 +848,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
+        input.focus();
     }
 
 });
