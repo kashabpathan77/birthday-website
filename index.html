@@ -411,11 +411,73 @@ footer .big-heart {
         font-size: 16px;
     }
 }
+    
+    background: linear-gradient(
+        45deg,
+        #ff277f,
+        #ff72b5
+    );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px #ff277f88;
+
+    transition: 0.3s;
+}
+
+.password-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff277f;
+}
+
+#passwordError {
+    color: #ff9fbd;
+    min-height: 24px;
+
+    margin-top: 15px;
+    margin-bottom: 0;
+
+    font-size: 15px;
+}
 </style>
 </head>
 
 <body>
+  <!-- ================= PASSWORD SCREEN ================= -->
 
+<div id="passwordScreen">
+
+    <div class="password-box">
+
+        <div class="lock-icon">🔐</div>
+
+        <h2>Private Birthday Surprise 💗</h2>
+
+        <p>Enter the secret password to open your surprise 🎁</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter password 🔑"
+            autocomplete="off"
+        >
+
+        <button onclick="checkPassword()">
+            🔓 Unlock Surprise
+        </button>
+
+        <p id="passwordError"></p>
+
+    </div>
+
+</div>
+    
 <!-- ================= HERO ================= -->
 
 <header class="hero">
@@ -722,6 +784,60 @@ function openGift() {
     }
 
 }
+    /* =====================================================
+   🔐 PASSWORD PROTECTION
+===================================================== */
+
+const SECRET_PASSWORD = "Avi486";
+
+function checkPassword() {
+
+    const input = document.getElementById("passwordInput");
+    const passwordScreen = document.getElementById("passwordScreen");
+    const error = document.getElementById("passwordError");
+
+    if (!input || !passwordScreen) {
+        return;
+    }
+
+    if (input.value.trim() === SECRET_PASSWORD) {
+
+        // Correct password
+        passwordScreen.style.display = "none";
+
+        document.body.style.overflowX = "hidden";
+        document.body.style.overflowY = "auto";
+
+    } else {
+
+        // Wrong password
+        error.textContent = "❌ Wrong password! Try again.";
+
+        input.value = "";
+        input.focus();
+    }
+}
+
+
+/* Allow Enter key */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const input = document.getElementById("passwordInput");
+
+    if (input) {
+
+        input.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+
+        });
+
+    }
+
+});
 
 </script>
 
